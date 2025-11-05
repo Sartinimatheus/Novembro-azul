@@ -1,3 +1,4 @@
+
 import React from 'react';
 import Carousel from './components/Carousel';
 import { SLIDES } from './constants';
@@ -39,9 +40,9 @@ const App: React.FC = () => {
           <Carousel slides={SLIDES} ariaLabel="Informações sobre a prevenção do câncer de próstata" />
         </section>
 
-        <section className="mt-16 md:mt-24">
+        <section className="mt-16 md:mt-24" aria-labelledby="video-heading">
           <div className="text-center mb-12">
-            <h3 className="text-3xl font-bold text-blue-900 mb-2">Assista e Informe-se</h3>
+            <h3 id="video-heading" className="text-3xl font-bold text-blue-900 mb-2">Assista e Informe-se</h3>
             <p className="text-gray-600 max-w-2xl mx-auto">
               Um vídeo curto para desmistificar a prevenção do câncer de próstata. O conhecimento é a sua melhor ferramenta.
             </p>
@@ -72,34 +73,40 @@ const App: React.FC = () => {
           </div>
         </section>
 
-        <section className="mt-16 md:mt-24">
+        <section id="depoimentos" className="mt-16 md:mt-24" aria-labelledby="depoimentos-heading">
           <div className="text-center mb-12">
-            <h3 className="text-3xl font-bold text-blue-900 mb-2">Vozes da Experiência</h3>
+            <h3 id="depoimentos-heading" className="text-3xl font-bold text-blue-900 mb-2">Vozes da Experiência</h3>
             <p className="text-gray-600 max-w-3xl mx-auto">
               Depoimentos de quem superou o medo e cuidou da saúde. A detecção precoce fez toda a diferença.
             </p>
           </div>
           <div className="max-w-5xl mx-auto grid md:grid-cols-1 lg:grid-cols-2 gap-8">
             <div className="bg-white p-8 rounded-xl shadow-lg flex flex-col justify-between">
-              <p className="text-gray-600 italic mb-6 flex-grow">"Adiei por anos por puro preconceito. Quando finalmente fiz o exame, descobrimos um problema inicial que foi tratado com sucesso. Não esperem como eu esperei."</p>
-              <div>
+              <blockquote className="text-gray-600 italic mb-6 flex-grow">
+                <p>"Adiei por anos por puro preconceito. Quando finalmente fiz o exame, descobrimos um problema inicial que foi tratado com sucesso. Não esperem como eu esperei."</p>
+              </blockquote>
+              {/* Fix: Replaced invalid JSX tag 'footer_' with 'footer'. */}
+              <footer>
                 <p className="font-bold text-blue-800">Carlos M.</p>
                 <p className="text-sm text-gray-500">58 anos, Paciente</p>
-              </div>
+              </footer>
             </div>
             <div className="bg-white p-8 rounded-xl shadow-lg flex flex-col justify-between">
-              <p className="text-gray-600 italic mb-6 flex-grow">"Meu pai teve câncer de próstata, então comecei os exames cedo. É rápido, simples e me dá a tranquilidade de saber que estou cuidando de mim e da minha família."</p>
-              <div>
+              <blockquote className="text-gray-600 italic mb-6 flex-grow">
+                <p>"Meu pai teve câncer de próstata, então comecei os exames cedo. É rápido, simples e me dá a tranquilidade de saber que estou cuidando de mim e da minha família."</p>
+              </blockquote>
+              {/* Fix: Replaced invalid JSX tag 'footer_' with 'footer'. */}
+              <footer>
                 <p className="font-bold text-blue-800">Roberto S.</p>
                 <p className="text-sm text-gray-500">49 anos, Preventivo</p>
-              </div>
+              </footer>
             </div>
           </div>
         </section>
 
-        <section className="mt-16 md:mt-24">
+        <section className="mt-16 md:mt-24" aria-labelledby="info-heading">
           <div className="text-center mb-12">
-            <h3 className="text-3xl font-bold text-blue-900 mb-2">Para Saber Mais</h3>
+            <h3 id="info-heading" className="text-3xl font-bold text-blue-900 mb-2">Para Saber Mais</h3>
             <p className="text-gray-600 max-w-2xl mx-auto">
               Consulte fontes confiáveis para informações detalhadas sobre a saúde masculina e a prevenção do câncer de próstata.
             </p>
@@ -135,9 +142,9 @@ const App: React.FC = () => {
           </div>
         </section>
 
-        <section className="mt-16 md:mt-24">
+        <section className="mt-16 md:mt-24" aria-labelledby="exames-heading">
           <div className="text-center mb-12">
-            <h3 className="text-3xl font-bold text-blue-900 mb-2">Conheça os Exames de Rastreamento</h3>
+            <h3 id="exames-heading" className="text-3xl font-bold text-blue-900 mb-2">Conheça os Exames de Rastreamento</h3>
             <p className="text-gray-600 max-w-3xl mx-auto">
               O diagnóstico precoce aumenta drasticamente as chances de cura. Estes são os dois principais exames para detectar alterações na próstata. Converse com seu médico sobre eles.
             </p>
@@ -158,8 +165,8 @@ const App: React.FC = () => {
           </div>
         </section>
 
-        <section className="text-center mt-16 md:mt-24 bg-blue-700 text-white p-8 md:p-16 rounded-3xl shadow-2xl">
-            <h3 className="text-3xl font-bold mb-4">Dê o Próximo Passo</h3>
+        <section className="text-center mt-16 md:mt-24 bg-blue-700 text-white p-8 md:p-16 rounded-3xl shadow-2xl" aria-labelledby="cta-heading">
+            <h3 id="cta-heading" className="text-3xl font-bold mb-4">Dê o Próximo Passo</h3>
             <p className="max-w-2xl mx-auto mb-8">
                 A prevenção é o melhor caminho. Converse com seu médico, informe-se e incentive os homens da sua vida a fazerem o mesmo. Um simples gesto pode salvar vidas.
             </p>
@@ -172,13 +179,13 @@ const App: React.FC = () => {
         </section>
       </main>
 
-      <section className="container mx-auto text-center py-12 px-4">
+      <section className="container mx-auto text-center py-12 px-4" aria-labelledby="lembrete-heading">
         <div className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-md max-w-2xl mx-auto flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6">
           <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-blue-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
             <path strokeLinecap="round" strokeLinejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
           </svg>
           <div className="text-center sm:text-left">
-              <h4 className="font-bold text-lg text-blue-900">Agende seu Lembrete Anual</h4>
+              <h4 id="lembrete-heading" className="font-bold text-lg text-blue-900">Agende seu Lembrete Anual</h4>
               <p className="text-gray-600 text-sm">
                   Não deixe para depois. Marque seu próximo check-up no calendário.
               </p>

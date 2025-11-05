@@ -1,3 +1,4 @@
+
 import React, { useState, useCallback, useRef, useEffect } from 'react';
 import { type Slide } from '../types';
 
@@ -44,12 +45,12 @@ const Carousel: React.FC<CarouselProps> = ({ slides, ariaLabel = "Carrossel de i
 
   return (
     <div className="relative h-full w-full max-w-4xl mx-auto" role="region" aria-roledescription="carousel" aria-label={ariaLabel}>
-      <div className="absolute top-1/2 -translate-y-1/2 left-0 z-10">
+      <div className="absolute top-1/2 -translate-y-1/2 left-4 z-10">
         <button onClick={goToPrevious} aria-label="Slide anterior" className="bg-white/50 hover:bg-white text-blue-800 p-3 rounded-full shadow-lg transition-all duration-300 transform hover:scale-110 focus:outline-none focus:ring-2 focus:ring-blue-500">
           <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" /></svg>
         </button>
       </div>
-      <div className="absolute top-1/2 -translate-y-1/2 right-0 z-10">
+      <div className="absolute top-1/2 -translate-y-1/2 right-4 z-10">
         <button onClick={goToNext} aria-label="Próximo slide" className="bg-white/50 hover:bg-white text-blue-800 p-3 rounded-full shadow-lg transition-all duration-300 transform hover:scale-110 focus:outline-none focus:ring-2 focus:ring-blue-500">
           <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
         </button>
@@ -75,12 +76,11 @@ const Carousel: React.FC<CarouselProps> = ({ slides, ariaLabel = "Carrossel de i
           ))}
         </div>
       </div>
-      <div className="absolute bottom-5 left-1/2 -translate-x-1/2 flex space-x-2" role="tablist" aria-label="Navegação dos slides">
+      <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 flex space-x-2" role="tablist" aria-label="Navegação dos slides">
         {slides.map((slide, slideIndex) => (
           <button
             key={slideIndex}
             id={`slide-tab-${slideIndex}`}
-            // Fix: The ref callback should not return a value. Using a block body `{}` ensures a void return type, satisfying the 'Ref<HTMLButtonElement>' type.
             ref={el => { tabRefs.current[slideIndex] = el; }}
             role="tab"
             aria-selected={currentIndex === slideIndex}
